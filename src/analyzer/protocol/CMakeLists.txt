@@ -1,4 +1,3 @@
-
 add_subdirectory(bittorrent)
 add_subdirectory(conn-size)
 add_subdirectory(dce-rpc)
@@ -41,6 +40,5 @@ add_subdirectory(ssl)
 add_subdirectory(syslog)
 add_subdirectory(tcp)
 add_subdirectory(teredo)
-add_subdirectory(vxlan)
 add_subdirectory(xmpp)
 add_subdirectory(zip)

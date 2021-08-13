@@ -102,7 +102,6 @@ event zeek_init() &priority=5
 
 	Analyzer::register_for_ports(Analyzer::ANALYZER_TEREDO, teredo_ports);
 	Analyzer::register_for_ports(Analyzer::ANALYZER_GTPV1, gtpv1_ports);
-	Analyzer::register_for_ports(Analyzer::ANALYZER_VXLAN, vxlan_ports);
 	}
 
 function register_all(ecv: EncapsulatingConnVector)
