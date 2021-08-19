@@ -10,6 +10,7 @@
 #include "zeek/IPAddr.h"
 #include "zeek/ID.h"
 #include "zeek/UID.h"
+#include "zeek/IP.h"
 
 namespace zeek {
 
@@ -140,6 +141,7 @@ protected:
 	TransportProto proto;
 	BifEnum::Tunnel::Type type;
 	UID uid;
+	std::shared_ptr<IP_Hdr> ip_hdr;
 };
 
 /**
