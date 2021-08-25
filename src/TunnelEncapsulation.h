@@ -66,7 +66,7 @@ public:
 	 * Copy constructor.
 	 */
 	EncapsulatingConn(const EncapsulatingConn& other)
-		: src_addr(other.src_addr), dst_addr(other.dst_addr),
+		: ip_hdr(other.ip_hdr), src_addr(other.src_addr), dst_addr(other.dst_addr),
 		  src_port(other.src_port), dst_port(other.dst_port),
 		  proto(other.proto), type(other.type), uid(other.uid)
 		{}
@@ -88,6 +88,7 @@ public:
 			proto = other.proto;
 			type = other.type;
 			uid = other.uid;
+			ip_hdr = other.ip_hdr;
 			}
 
 		return *this;
@@ -133,6 +134,9 @@ public:
 		return ! ( ec1 == ec2 );
 		}
 
+	// temp public
+	std::shared_ptr<IP_Hdr> ip_hdr;
+
 protected:
 	IPAddr src_addr;
 	IPAddr dst_addr;
@@ -141,7 +145,6 @@ protected:
 	TransportProto proto;
 	BifEnum::Tunnel::Type type;
 	UID uid;
-	std::shared_ptr<IP_Hdr> ip_hdr;
 };
 
 /**
@@ -232,6 +235,23 @@ public:
 	                       const EncapsulationStack& e2)
 		{
 		return ! ( e1 == e2 );
+		}
+
+	/**
+	 * Returns a pointer the last element in the stack. Returns a nullptr
+	 * if the stack is empty or hasn't been initialized yet.
+	 */
+	EncapsulatingConn* Last()
+		{
+		return Depth() > 0 ? &(conns->back()) : nullptr;
+		}
+
+	EncapsulatingConn* At(int index)
+		{
+		if ( index > 0 && index <= Depth() )
+			return &(conns->at(index-1));
+
+		return nullptr;
 		}
 
 protected:

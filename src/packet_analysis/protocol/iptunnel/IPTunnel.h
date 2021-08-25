@@ -77,6 +77,13 @@ protected:
 
 };
 
+extern void build_inner_packet(Packet* inner_pkt, Packet* outer_pkt,
+                               uint32_t next_header, int* encap_index,
+                               std::shared_ptr<EncapsulationStack> encap_stack,
+                               uint32_t len, const u_char* data, int link_type,
+                               BifEnum::Tunnel::Type tunnel_type,
+                               const Tag& analyzer_tag);
+
 namespace detail {
 
 class IPTunnelTimer final : public zeek::detail::Timer {

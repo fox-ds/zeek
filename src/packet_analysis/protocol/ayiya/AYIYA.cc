@@ -1,6 +1,7 @@
 // See the file "COPYING" in the main distribution directory for copyright.
 
 #include "zeek/packet_analysis/protocol/ayiya/AYIYA.h"
+#include "zeek/packet_analysis/protocol/iptunnel/IPTunnel.h"
 
 using namespace zeek::packet_analysis::AYIYA;
 
@@ -51,21 +52,28 @@ bool AYIYAAnalyzer::AnalyzePacket(size_t len, const uint8_t* data, Packet* packe
 
 	uint8_t next_header = data[3];
 
+	// AYIYA can really hold anything, why do we limit the next header to IP only? This
+	// really should let the forwarding code fail out instead.
 	if ( next_header != IPPROTO_IPV4 && next_header != IPPROTO_IPV6 )
 		{
 		Weird("ayiya_tunnel_non_ip", packet);
 		return false;
 		}
 
-	packet->proto = next_header;
-	packet->gre_version = -1;
-	packet->tunnel_type = BifEnum::Tunnel::AYIYA;
-	packet->tunnel_tag = GetAnalyzerTag();
+	len -= hdr_size;
+	data += hdr_size;
+
+	Packet inner_packet;
+	int encap_index = 0;
+	packet_analysis::IPTunnel::build_inner_packet(
+		&inner_packet, packet, next_header, &encap_index,
+		nullptr, len, data, DLT_RAW, BifEnum::Tunnel::AYIYA,
+		GetAnalyzerTag());
 
 	// Skip the header and pass on to the next analyzer. It's possible for AYIYA to
 	// just be a header and nothing after it, so check for that case.
-	if ( len != hdr_size )
-		return ForwardPacket(len - hdr_size, data + hdr_size, packet, next_header);
+	if ( len > hdr_size )
+		return ForwardPacket(len, data, &inner_packet, next_header);
 
 	return true;
 	}
