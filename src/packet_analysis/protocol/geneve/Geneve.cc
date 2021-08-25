@@ -3,7 +3,6 @@
 #include "zeek/packet_analysis/protocol/geneve/Geneve.h"
 #include "zeek/packet_analysis/protocol/geneve/events.bif.h"
 #include "zeek/packet_analysis/protocol/iptunnel/IPTunnel.h"
-#include "zeek/RunState.h"
 
 using namespace zeek::packet_analysis::Geneve;
 
@@ -55,25 +54,31 @@ bool GeneveAnalyzer::AnalyzePacket(size_t len, const uint8_t* data, Packet* pack
 	// anyways so that the forwarding can do its thing.
 	auto next_header = (data[2] << 8) + data[3];
 
+	// Grab the VNI out of the data before advancing the data pointer
+	auto vni = (data[4] << 16) + (data[5] << 8) + data[6];
+
+	len -= hdr_size;
+	data += hdr_size;
+
 	Packet inner_packet;
 	int encap_index = 0;
 	packet_analysis::IPTunnel::build_inner_packet(
 		&inner_packet, packet, next_header, &encap_index,
-		nullptr, len, data, DLT_RAW, BifEnum::Tunnel::AYIYA,
+		nullptr, len, data, DLT_RAW, BifEnum::Tunnel::GENEVE,
 		GetAnalyzerTag());
 
 	// Skip the header and pass on to the next analyzer. It's possible for Geneve to
 	// just be a header and nothing after it, so check for that case.
 	bool fwd_ret_val = true;
 	if ( len > hdr_size )
-		fwd_ret_val = ForwardPacket(len - hdr_size, data + hdr_size, &inner_packet, next_header);
+		fwd_ret_val = ForwardPacket(len, data, &inner_packet, next_header);
 
-	if ( fwd_ret_val && geneve_packet && packet->session && encap_index >= 0 )
+	if ( fwd_ret_val && geneve_packet && packet->session )
 		{
 		EncapsulatingConn* ec = inner_packet.encap->At(encap_index);
-		auto vni = (data[4] << 16) + (data[5] << 8) + data[6];
-		inner_packet.session->EnqueueEvent(geneve_packet, nullptr, packet->session->GetVal(),
-		                                   ec->ip_hdr->ToPktHdrVal(), val_mgr->Count(vni));
+		if ( ec && ec->ip_hdr )
+			inner_packet.session->EnqueueEvent(geneve_packet, nullptr, packet->session->GetVal(),
+			                                   ec->ip_hdr->ToPktHdrVal(), val_mgr->Count(vni));
 
 		// TODO protocol confirmation
 		}
