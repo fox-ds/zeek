@@ -176,7 +176,6 @@ bool IPTunnelAnalyzer::ProcessEncapsulatedPacket(double t, const Packet* pkt,
 	return return_val;
 	}
 
-
 void build_inner_packet(Packet* inner_pkt, Packet* outer_pkt,
                         uint32_t next_header, int* encap_index,
                         std::shared_ptr<EncapsulationStack> encap_stack,
