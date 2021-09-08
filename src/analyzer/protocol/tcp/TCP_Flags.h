@@ -4,6 +4,8 @@
 #include <sys/types.h>
 #include <string>
 
+#include "zeek/net_util.h"
+
 namespace zeek::analyzer::tcp
 	{
 
