@@ -7,7 +7,7 @@
 #include <functional>
 
 #include "zeek/util.h"
-#include "zeek/packet_analysis/Tag.h"
+#include "zeek/analyzer/Tag.h"
 
 #include "zeek/plugin/Component.h"
 #include "zeek/plugin/TaggedComponent.h"
@@ -18,7 +18,7 @@ class Analyzer;
 using AnalyzerPtr = std::shared_ptr<Analyzer>;
 
 class Component : public plugin::Component,
-                  public plugin::TaggedComponent<packet_analysis::Tag> {
+                  public plugin::TaggedComponent<analyzer::Tag> {
 public:
 	using factory_callback = std::function<AnalyzerPtr ()>;
 

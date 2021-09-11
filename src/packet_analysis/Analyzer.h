@@ -4,7 +4,7 @@
 #include <set>
 
 #include "zeek/packet_analysis/Manager.h"
-#include "zeek/packet_analysis/Tag.h"
+#include "zeek/analyzer/Tag.h"
 #include "zeek/iosource/Packet.h"
 
 namespace zeek::packet_analysis {
@@ -31,7 +31,7 @@ public:
 	 * @param tag The tag for the type of analyzer. The tag must map to
 	 * the name the corresponding Component registers.
 	 */
-	explicit Analyzer(const Tag& tag);
+	explicit Analyzer(const analyzer::Tag& tag);
 
 	/**
 	 * Destructor.
@@ -50,7 +50,7 @@ public:
 	/**
 	 * Returns the tag associated with the analyzer's type.
 	 */
-	const Tag GetAnalyzerTag() const;
+	const analyzer::Tag GetAnalyzerTag() const;
 
 	/**
 	 * Returns a textual description of the analyzer's type. This is
@@ -188,7 +188,7 @@ protected:
 	void Weird(const char* name, Packet* packet=nullptr, const char* addl="") const;
 
 private:
-	Tag tag;
+	analyzer::Tag tag;
 	Dispatcher dispatcher;
 	AnalyzerPtr default_analyzer = nullptr;
 
@@ -199,7 +199,7 @@ private:
 
 	std::set<AnalyzerPtr> analyzers_to_detect;
 
-	void Init(const Tag& tag);
+	void Init(const analyzer::Tag& tag);
 };
 
 using AnalyzerPtr = std::shared_ptr<Analyzer>;

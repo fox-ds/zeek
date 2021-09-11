@@ -12,7 +12,7 @@
 using namespace zeek::packet_analysis;
 
 Manager::Manager()
-	: plugin::ComponentManager<packet_analysis::Tag, packet_analysis::Component>("PacketAnalyzer", "Tag")
+	: plugin::ComponentManager<analyzer::Tag, packet_analysis::Component>("PacketAnalyzer", "Tag")
 	{
 	}
 
@@ -122,7 +122,7 @@ bool Manager::ProcessInnerPacket(Packet* packet)
 	return root_analyzer->ForwardPacket(packet->cap_len, packet->data, packet, packet->link_type);
 	}
 
-AnalyzerPtr Manager::InstantiateAnalyzer(const Tag& tag)
+AnalyzerPtr Manager::InstantiateAnalyzer(const analyzer::Tag& tag)
 	{
 	Component* c = Lookup(tag);
 
@@ -157,7 +157,7 @@ AnalyzerPtr Manager::InstantiateAnalyzer(const Tag& tag)
 
 AnalyzerPtr Manager::InstantiateAnalyzer(const std::string& name)
 	{
-	Tag tag = GetComponentTag(name);
+	analyzer::Tag tag = GetComponentTag(name);
 	return tag ? InstantiateAnalyzer(tag) : nullptr;
 	}
 

@@ -8,7 +8,7 @@ using namespace zeek::packet_analysis;
 
 Component::Component(const std::string& name, factory_callback arg_factory, Tag::subtype_t arg_subtype)
 	: plugin::Component(plugin::component::PACKET_ANALYZER, name),
-	  plugin::TaggedComponent<packet_analysis::Tag>(arg_subtype)
+	  plugin::TaggedComponent<analyzer::Tag>(arg_subtype)
 	{
 	factory = arg_factory;
 	}

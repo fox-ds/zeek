@@ -13,7 +13,7 @@ namespace zeek::packet_analysis {
 Analyzer::Analyzer(std::string name, bool report_unknown_protocols) :
 	report_unknown_protocols(report_unknown_protocols)
 	{
-	Tag t = packet_mgr->GetComponentTag(name);
+	analyzer::Tag t = packet_mgr->GetComponentTag(name);
 
 	if ( ! t )
 		reporter->InternalError("unknown packet_analysis name %s", name.c_str());
@@ -21,12 +21,12 @@ Analyzer::Analyzer(std::string name, bool report_unknown_protocols) :
 	Init(t);
 	}
 
-Analyzer::Analyzer(const Tag& tag)
+Analyzer::Analyzer(const analyzer::Tag& tag)
 	{
 	Init(tag);
 	}
 
-void Analyzer::Init(const Tag& _tag)
+void Analyzer::Init(const analyzer::Tag& _tag)
 	{
 	tag = _tag;
 	}
@@ -49,7 +49,7 @@ zeek::packet_analysis::AnalyzerPtr Analyzer::LoadAnalyzer(const std::string &nam
 	return packet_mgr->GetAnalyzer(analyzer_val->AsEnumVal());
 	}
 
-const Tag Analyzer::GetAnalyzerTag() const
+const analyzer::Tag Analyzer::GetAnalyzerTag() const
 	{
 	assert(tag);
 	return tag;

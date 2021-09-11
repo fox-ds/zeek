@@ -17,6 +17,13 @@ template <class T, class C> class ComponentManager;
 
 } // namespace plugin
 
+namespace packet_analysis {
+
+class Manager;
+class Component;
+
+} // namespace packet_analysis
+
 namespace analyzer {
 
 class Manager;
@@ -92,7 +99,9 @@ public:
 
 protected:
 	friend class analyzer::Manager;
+	friend class packet_analysis::Manager;
 	friend class plugin::ComponentManager<Tag, Component>;
+	friend class plugin::ComponentManager<Tag, packet_analysis::Component>;
 	friend class plugin::TaggedComponent<Tag>;
 
 	/**

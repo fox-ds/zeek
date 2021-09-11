@@ -181,7 +181,7 @@ void build_inner_packet(Packet* inner_pkt, Packet* outer_pkt,
                         std::shared_ptr<EncapsulationStack> encap_stack,
                         uint32_t len, const u_char* data, int link_type,
                         BifEnum::Tunnel::Type tunnel_type,
-                        const Tag& analyzer_tag)
+                        const analyzer::Tag& analyzer_tag)
 	{
 	// TODO: the other functions use the timestamp from the outer packet here if
 	// the packet is valid. Considering it should always be valid, why would they

@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "zeek/packet_analysis/Tag.h"
+#include "zeek/analyzer/Tag.h"
 #include "zeek/packet_analysis/Component.h"
 #include "zeek/plugin/ComponentManager.h"
 #include "zeek/iosource/Packet.h"
@@ -18,7 +18,7 @@ namespace packet_analysis {
 class Analyzer;
 using AnalyzerPtr = std::shared_ptr<Analyzer>;
 
-class Manager : public plugin::ComponentManager<Tag, Component> {
+class Manager : public plugin::ComponentManager<analyzer::Tag, Component> {
 public:
 	/**
 	 * Constructor.
@@ -129,7 +129,7 @@ private:
 	 * @return The new analyzer instance. Returns null if tag is invalid, the
 	 * requested analyzer is disabled, or the analyzer can't be instantiated.
 	 */
-	AnalyzerPtr InstantiateAnalyzer(const Tag& tag);
+	AnalyzerPtr InstantiateAnalyzer(const analyzer::Tag& tag);
 
 	/**
 	 * Instantiates a new analyzer.
