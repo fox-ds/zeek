@@ -13,7 +13,11 @@ redef likely_server_ports += { geneve_ports };
 event zeek_init() &priority=20
 	{
 	for ( p in geneve_ports )
-		PacketAnalyzer::register_packet_analyzer(PacketAnalyzer::ANALYZER_UDP, port_to_count(p), PacketAnalyzer::ANALYZER_GENEVE);
+		{
+		PacketAnalyzer::register_packet_analyzer(PacketAnalyzer::ANALYZER_UDP, port_to_count(p),
+		                                         PacketAnalyzer::ANALYZER_GENEVE);
+		Analyzer::add_port_to_table(PacketAnalyzer::ANALYZER_GENEVE, p);
+		}
 
 	# This is defined by IANA as being "Trans Ether Bridging" but the Geneve RFC
 	# says to use it for Ethernet. See

@@ -61,6 +61,71 @@
 0.000000   MetaHookPost  CallFunction(Analyzer::__register_for_port, <frame>, (Analyzer::ANALYZER_SYSLOG, 514/udp)) -> <no result>
 0.000000   MetaHookPost  CallFunction(Analyzer::__register_for_port, <frame>, (Analyzer::ANALYZER_XMPP, 5222/tcp)) -> <no result>
 0.000000   MetaHookPost  CallFunction(Analyzer::__register_for_port, <frame>, (Analyzer::ANALYZER_XMPP, 5269/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DCE_RPC, 135/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DHCP, 4011/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DHCP, 67/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DHCP, 68/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNP3_TCP, 20000/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNP3_TCP, 20000/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 137/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 53/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 53/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 5353/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 5355/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DTLS, 443/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_FTP, 21/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_FTP, 2811/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_GTPV1, 2123/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_GTPV1, 2152/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 1080/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 3128/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 631/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 80/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 8000/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 8080/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 81/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 8888/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IMAP, 143/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6666/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6667/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6668/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6669/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_KRB, 88/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_KRB_TCP, 88/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_MODBUS, 502/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_MYSQL, 1434/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_MYSQL, 3306/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_NTP, 123/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_RADIUS, 1812/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_RDP, 3389/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_RDPEUDP, 3389/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SIP, 5060/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMB, 139/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMB, 445/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMTP, 25/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMTP, 587/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SNMP, 161/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SNMP, 162/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SOCKS, 1080/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSH, 22/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 443/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 5223/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 563/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 585/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 614/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 636/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 989/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 990/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 992/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 993/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 995/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SYSLOG, 514/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_XMPP, 5222/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_XMPP, 5269/tcp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_AYIYA, 5072/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_GENEVE, 6081/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_TEREDO, 3544/udp)) -> <no result>
+0.000000   MetaHookPost  CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_VXLAN, 4789/udp)) -> <no result>
 0.000000   MetaHookPost  CallFunction(Analyzer::disable_analyzer, <frame>, (Analyzer::ANALYZER_TCPSTATS)) -> <no result>
 0.000000   MetaHookPost  CallFunction(Analyzer::register_for_port, <frame>, (Analyzer::ANALYZER_DCE_RPC, 135/tcp)) -> <no result>
 0.000000   MetaHookPost  CallFunction(Analyzer::register_for_port, <frame>, (Analyzer::ANALYZER_DHCP, 4011/udp)) -> <no result>
@@ -1120,6 +1185,71 @@
 0.000000   MetaHookPre   CallFunction(Analyzer::__register_for_port, <frame>, (Analyzer::ANALYZER_SYSLOG, 514/udp))
 0.000000   MetaHookPre   CallFunction(Analyzer::__register_for_port, <frame>, (Analyzer::ANALYZER_XMPP, 5222/tcp))
 0.000000   MetaHookPre   CallFunction(Analyzer::__register_for_port, <frame>, (Analyzer::ANALYZER_XMPP, 5269/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DCE_RPC, 135/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DHCP, 4011/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DHCP, 67/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DHCP, 68/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNP3_TCP, 20000/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNP3_TCP, 20000/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 137/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 53/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 53/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 5353/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DNS, 5355/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_DTLS, 443/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_FTP, 21/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_FTP, 2811/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_GTPV1, 2123/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_GTPV1, 2152/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 1080/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 3128/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 631/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 80/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 8000/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 8080/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 81/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_HTTP, 8888/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IMAP, 143/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6666/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6667/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6668/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_IRC, 6669/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_KRB, 88/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_KRB_TCP, 88/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_MODBUS, 502/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_MYSQL, 1434/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_MYSQL, 3306/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_NTP, 123/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_RADIUS, 1812/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_RDP, 3389/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_RDPEUDP, 3389/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SIP, 5060/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMB, 139/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMB, 445/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMTP, 25/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SMTP, 587/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SNMP, 161/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SNMP, 162/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SOCKS, 1080/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSH, 22/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 443/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 5223/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 563/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 585/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 614/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 636/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 989/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 990/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 992/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 993/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SSL, 995/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_SYSLOG, 514/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_XMPP, 5222/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (Analyzer::ANALYZER_XMPP, 5269/tcp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_AYIYA, 5072/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_GENEVE, 6081/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_TEREDO, 3544/udp))
+0.000000   MetaHookPre   CallFunction(Analyzer::add_port_to_table, <frame>, (PacketAnalyzer::ANALYZER_VXLAN, 4789/udp))
 0.000000   MetaHookPre   CallFunction(Analyzer::disable_analyzer, <frame>, (Analyzer::ANALYZER_TCPSTATS))
 0.000000   MetaHookPre   CallFunction(Analyzer::register_for_port, <frame>, (Analyzer::ANALYZER_DCE_RPC, 135/tcp))
 0.000000   MetaHookPre   CallFunction(Analyzer::register_for_port, <frame>, (Analyzer::ANALYZER_DHCP, 4011/udp))
@@ -2179,6 +2309,71 @@
 0.000000 | HookCallFunction Analyzer::__register_for_port(Analyzer::ANALYZER_SYSLOG, 514/udp)
 0.000000 | HookCallFunction Analyzer::__register_for_port(Analyzer::ANALYZER_XMPP, 5222/tcp)
 0.000000 | HookCallFunction Analyzer::__register_for_port(Analyzer::ANALYZER_XMPP, 5269/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DCE_RPC, 135/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DHCP, 4011/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DHCP, 67/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DHCP, 68/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DNP3_TCP, 20000/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DNP3_TCP, 20000/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DNS, 137/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DNS, 53/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DNS, 53/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DNS, 5353/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DNS, 5355/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_DTLS, 443/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_FTP, 21/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_FTP, 2811/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_GTPV1, 2123/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_GTPV1, 2152/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 1080/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 3128/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 631/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 80/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 8000/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 8080/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 81/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_HTTP, 8888/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_IMAP, 143/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_IRC, 6666/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_IRC, 6667/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_IRC, 6668/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_IRC, 6669/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_KRB, 88/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_KRB_TCP, 88/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_MODBUS, 502/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_MYSQL, 1434/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_MYSQL, 3306/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_NTP, 123/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_RADIUS, 1812/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_RDP, 3389/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_RDPEUDP, 3389/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SIP, 5060/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SMB, 139/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SMB, 445/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SMTP, 25/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SMTP, 587/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SNMP, 161/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SNMP, 162/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SOCKS, 1080/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSH, 22/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 443/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 5223/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 563/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 585/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 614/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 636/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 989/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 990/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 992/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 993/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SSL, 995/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_SYSLOG, 514/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_XMPP, 5222/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(Analyzer::ANALYZER_XMPP, 5269/tcp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(PacketAnalyzer::ANALYZER_AYIYA, 5072/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(PacketAnalyzer::ANALYZER_GENEVE, 6081/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(PacketAnalyzer::ANALYZER_TEREDO, 3544/udp)
+0.000000 | HookCallFunction Analyzer::add_port_to_table(PacketAnalyzer::ANALYZER_VXLAN, 4789/udp)
 0.000000 | HookCallFunction Analyzer::disable_analyzer(Analyzer::ANALYZER_TCPSTATS)
 0.000000 | HookCallFunction Analyzer::register_for_port(Analyzer::ANALYZER_DCE_RPC, 135/tcp)
 0.000000 | HookCallFunction Analyzer::register_for_port(Analyzer::ANALYZER_DHCP, 4011/udp)

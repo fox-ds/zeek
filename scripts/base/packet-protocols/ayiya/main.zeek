@@ -1,5 +1,8 @@
 module PacketAnalyzer::AYIYA;
 
+# Needed for port registration for BPF
+@load base/frameworks/analyzer/main
+
 const IPPROTO_IPV4 : count = 4;
 const IPPROTO_IPV6 : count = 41;
 
@@ -13,5 +16,9 @@ event zeek_init() &priority=20
 	PacketAnalyzer::register_packet_analyzer(PacketAnalyzer::ANALYZER_AYIYA, IPPROTO_IPV6, PacketAnalyzer::ANALYZER_IP);
 
 	for ( p in ayiya_ports )
-		PacketAnalyzer::register_packet_analyzer(PacketAnalyzer::ANALYZER_UDP, port_to_count(p), PacketAnalyzer::ANALYZER_AYIYA);
+		{
+		PacketAnalyzer::register_packet_analyzer(PacketAnalyzer::ANALYZER_UDP, port_to_count(p),
+		                                         PacketAnalyzer::ANALYZER_AYIYA);
+		Analyzer::add_port_to_table(PacketAnalyzer::ANALYZER_AYIYA, p);
+		}
 	}

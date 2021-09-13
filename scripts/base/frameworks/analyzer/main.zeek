@@ -126,6 +126,10 @@ export {
 	global disabled_analyzers: set[Analyzer::Tag] = {
 		ANALYZER_TCPSTATS,
 	} &redef;
+
+	## Adds a port to the table of ports stored for the analyzer framework.
+	## This table is mostly used in BPF filters.
+	global add_port_to_table: function (tag: Analyzer::Tag, p: port) : bool;
 }
 
 @load base/bif/analyzer.bif
@@ -164,16 +168,21 @@ function register_for_ports(tag: Analyzer::Tag, ports: set[port]) : bool
 	return rc;
 	}
 
-function register_for_port(tag: Analyzer::Tag, p: port) : bool
+function add_port_to_table(tag: Analyzer::Tag, p: port) : bool
 	{
-	if ( ! __register_for_port(tag, p) )
-		return F;
-
 	if ( tag !in ports )
 		ports[tag] = set();
 
 	add ports[tag][p];
 	return T;
+	}
+
+function register_for_port(tag: Analyzer::Tag, p: port) : bool
+	{
+	if ( ! __register_for_port(tag, p) )
+		return F;
+
+	return add_port_to_table(tag, p);
 	}
 
 function registered_ports(tag: Analyzer::Tag) : set[port]
@@ -223,4 +232,3 @@ function get_bpf(): string
 		}
 	return output;
 	}
-
