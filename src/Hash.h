@@ -26,7 +26,13 @@
 // to allow bro_md5_hmac access to the hmac seed
 #include "zeek/ZeekArgs.h"
 
-namespace zeek { class String; }
+namespace zeek {
+
+class String;
+class ODesc;
+
+}
+
 namespace zeek::detail {
 
 class Frame;
@@ -318,6 +324,8 @@ public:
 	void* KeyAtWrite() { return reinterpret_cast<void*>(key + write_size); }
 	const void* KeyAtRead() const { return reinterpret_cast<void*>(key + read_size); }
 	const void* KeyEnd() const { return reinterpret_cast<void*>(key + size); }
+
+	void Describe(ODesc* d) const;
 
 protected:
 	char* CopyKey(const char* key, size_t size) const;

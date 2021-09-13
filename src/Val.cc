@@ -2389,6 +2389,9 @@ void TableVal::Describe(ODesc* d) const
 			d_ptr->SP();
 			}
 
+		// The following shows the HashKey state as well:
+		// k->Describe(d_ptr);
+		// d_ptr->SP();
 		vl->Describe(d_ptr);
 
 		if ( table_type->IsSet() )

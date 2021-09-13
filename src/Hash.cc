@@ -8,6 +8,8 @@
 #include <highwayhash/instruction_sets.h>
 
 #include "zeek/digest.h"
+#include "zeek/DebugLogger.h"
+#include "zeek/Desc.h"
 #include "zeek/Reporter.h"
 #include "zeek/ZeekString.h"
 #include "zeek/Val.h" // needed for const.bif
@@ -183,6 +185,11 @@ hash_t HashKey::Hash() const
 	{
 	if ( hash == 0 )
 		hash = HashBytes(key, size);
+#ifdef DEBUG
+	ODesc d;
+	Describe(&d);
+	DBG_LOG(DBG_HASHKEY, "HashKey %p %s", this, d.Description());
+#endif
 	return hash;
 	}
 
@@ -195,6 +202,33 @@ void* HashKey::TakeKey()
 		}
 	else
 		return CopyKey(key, size);
+	}
+
+void HashKey::Describe(ODesc* d) const
+	{
+	char buf[64];
+	snprintf(buf, 16, "%0lx", hash);
+	d->Add(buf);
+	d->SP();
+
+	if ( size > 0 )
+		{
+		d->Add(IsAllocated() ? "(" : "[");
+
+		for ( size_t i = 0; i < size; i++ )
+			{
+			snprintf(buf, 3, "%02x", key[i]);
+			if ( i > 0 )
+				{
+				d->SP();
+				if ( i % 8 == 0 )
+					d->SP();
+				}
+			d->Add(buf);
+			}
+
+		d->Add(IsAllocated() ? ")" : "]");
+		}
 	}
 
 char* HashKey::CopyKey(const char* k, size_t s) const
@@ -267,6 +301,9 @@ void HashKey::Reserve(const char* tag, size_t addl_size, size_t alignment)
 	size_t s0 = size;
 	size_t s1 = util::memory_size_align(size, alignment);
 	size = s1 + addl_size;
+
+	DBG_LOG(DBG_HASHKEY, "HashKey %p reserving %lu/%lu: %lu -> %lu -> %lu [%s]",
+	        this, addl_size, alignment, s0, s1, size, tag);
 	}
 
 void HashKey::Allocate()
@@ -349,14 +386,22 @@ void HashKey::Write(const char* tag, double d, bool align)
 
 void HashKey::Write(const char* tag, const void *bytes, size_t n, size_t alignment)
 	{
+	size_t s0 = write_size;
 	AlignWrite(alignment);
+	size_t s1 = write_size;
 	EnsureWriteSpace(n);
 	memcpy(key + write_size, bytes, n);
 	write_size += n;
+
+	DBG_LOG(DBG_HASHKEY, "HashKey %p writing %lu/%lu: %lu -> %lu -> %lu [%s]",
+	        this, n, alignment, s0, s1, write_size, tag);
 	}
 
 void HashKey::SkipWrite(const char* tag, size_t n)
 	{
+	DBG_LOG(DBG_HASHKEY, "HashKey %p skip-writing %lu: %lu -> %lu [%s]",
+	        this, n, write_size, write_size + n, tag);
+
 	EnsureWriteSpace(n);
 	write_size += n;
 	}
@@ -428,14 +473,22 @@ void HashKey::Read(const char* tag, double& d, bool align) const
 
 void HashKey::Read(const char* tag, void* out, size_t n, size_t alignment) const
 	{
+	size_t s0 = read_size;
 	AlignRead(alignment);
+	size_t s1 = read_size;
 	EnsureReadSpace(n);
 	memcpy(out, key + read_size, n);
 	read_size += n;
+
+	DBG_LOG(DBG_HASHKEY, "HashKey %p reading %lu/%lu: %lu -> %lu -> %lu [%s]",
+	        this, n, alignment, s0, s1, read_size, tag);
 	}
 
 void HashKey::SkipRead(const char* tag, size_t n) const
 	{
+	DBG_LOG(DBG_HASHKEY, "HashKey %p skip-reading %lu: %lu -> %lu [%s]",
+	        this, n, read_size, read_size + n, tag);
+
 	EnsureReadSpace(n);
 	read_size += n;
 	}
