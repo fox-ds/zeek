@@ -17,6 +17,43 @@
 
 namespace zeek::detail {
 
+// A comparison callable to assist with consistent iteration order over tables
+// during reservation & writes.
+struct HashKeyComparer {
+	bool operator()(const std::unique_ptr<HashKey>& a, const std::unique_ptr<HashKey>& b) const
+	{
+	if ( a->Hash() != b->Hash() )
+		return a->Hash() < b->Hash();
+	if ( a->Size() != b->Size() )
+		return a->Size() < b->Size();
+	return strncmp(static_cast<const char*>(a->Key()),
+	               static_cast<const char*>(b->Key()),
+	               a->Size()) < 0;
+	}
+};
+
+using HashkeyMap = std::map<std::unique_ptr<HashKey>, ListValPtr, HashKeyComparer>;
+using HashkeysMapPtr = std::unique_ptr<HashkeyMap>;
+
+// Helper that produces a table from HashKeys to the ListVal indexes into the
+// table, that we can iterate over in sorted-Hashkey order.
+const HashkeysMapPtr ordered_hashkeys(const TableVal* tv)
+	{
+	auto res = std::make_unique<HashkeyMap>();
+	auto tbl = tv->AsTable();
+	auto idx = 0;
+
+	for ( const auto& entry : *tbl )
+		{
+		auto k = entry.GetHashKey();
+		// Do we have to recreate here? Could we reuse the existing key?
+		auto lv = tv->RecreateIndex(*k);
+		(*res)[std::move(k)] = lv;
+		}
+
+	return res;
+	}
+
 CompositeHash::CompositeHash(TypeListPtr composite_type)
 	: type(std::move(composite_type))
 	{
@@ -539,39 +576,13 @@ bool CompositeHash::SingleValHash(HashKey &hk, const Val* v, Type* bt, bool type
 				return false;
 
 			auto tv = v->AsTableVal();
-			auto tbl = tv->AsTable();
-			auto lv = make_intrusive<ListVal>(TYPE_ANY);
+			auto hashkeys = ordered_hashkeys(tv);
 
 			hk.Write("table-size", tv->Size());
 
-			struct HashKeyComparer {
-				bool operator()(const std::unique_ptr<HashKey>& a, const std::unique_ptr<HashKey>& b) const
-					{
-					if ( a->Hash() != b->Hash() )
-						return a->Hash() < b->Hash();
-					if ( a->Size() != b->Size() )
-						return a->Size() < b->Size();
-					return strncmp(static_cast<const char*>(a->Key()),
-					               static_cast<const char*>(b->Key()),
-					               a->Size()) < 0;
-					}
-			};
-
-			std::map<std::unique_ptr<HashKey>, int, HashKeyComparer> hashkeys;
-			auto idx = 0;
-
-			for ( const auto& entry : *tbl )
+			for ( auto& kv : *hashkeys )
 				{
-				auto k = entry.GetHashKey();
-				// Do we have to recreate here? Could we reuse the existing key?
-				lv->Append(tv->RecreateIndex(*k));
- 				hashkeys[std::move(k)] = idx++;
-				}
-
-			for ( auto& kv : hashkeys )
-				{
-				auto idx = kv.second;
-				const auto& key = lv->Idx(idx);
+				auto key = kv.second;
 
 				if ( ! SingleValHash(hk, key.get(), key->GetType().get(), type_check, false, false) )
 					return false;
@@ -784,12 +795,15 @@ bool CompositeHash::ReserveSingleTypeKeySize(HashKey& hk, Type* bt, const Val* v
 			if ( ! v )
 				return (optional && ! calc_static_size);
 
-			hk.ReserveType<int>("table-size");
 			auto tv = v->AsTableVal();
-			auto lv = tv->ToListVal();
-			for ( int i = 0; i < tv->Size(); ++i )
+			auto hashkeys = ordered_hashkeys(tv);
+
+			hk.ReserveType<int>("table-size");
+
+			for ( auto& kv : *hashkeys )
 				{
-				const auto& key = lv->Idx(i);
+				auto key = kv.second;
+
 				if ( ! ReserveSingleTypeKeySize(hk, key->GetType().get(), key.get(), type_check, false,
 				                                calc_static_size, false) )
 					return false;
