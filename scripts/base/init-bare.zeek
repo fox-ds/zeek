@@ -1655,6 +1655,8 @@ const TH_PUSH = 8;	##< PUSH.
 const TH_ACK = 16;	##< ACK.
 const TH_URG = 32;	##< URG.
 const TH_FLAGS = 63;	##< Mask combining all flags.
+const TH_ECE = 64;	##< ECN.
+const TH_CWR = 128;	##< CWR.
 
 ## Values extracted from a TCP header.
 ##

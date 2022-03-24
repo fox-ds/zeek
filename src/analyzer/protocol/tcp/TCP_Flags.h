@@ -10,6 +10,11 @@
 #include <string>
 // clang-format on
 
+// For some reason, these two constants are not defined in every 'netinet/tcp.h' file
+// on every system. Therefore, adding them here as they are part of the TCP standard.
+#define	TH_ECE	0x40
+#define	TH_CWR	0x80
+
 namespace zeek::analyzer::tcp
 	{
 
@@ -25,6 +30,8 @@ public:
 	bool ACK() const { return flags & TH_ACK; }
 	bool URG() const { return flags & TH_URG; }
 	bool PUSH() const { return flags & TH_PUSH; }
+	bool ECE() const { return flags & TH_ECE; }
+	bool CWR() const { return flags & TH_CWR; }
 
 	std::string AsString() const;
 
@@ -54,6 +61,12 @@ inline std::string TCP_Flags::AsString() const
 
 	if ( URG() )
 		*p++ = 'U';
+
+	if ( ECE() )
+		*p++ = 'E';
+
+	if ( CWR() )
+		*p++ = 'C';
 
 	*p++ = '\0';
 	return tcp_flags;
